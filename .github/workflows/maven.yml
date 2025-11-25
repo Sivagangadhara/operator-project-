@@ -22,14 +22,14 @@ jobs:
 
       # Step 3: Build JAR
       - name: Build JAR
-        run: mvn -B package -DskipTests --file StudentManagement/pom.xml
+        run: mvn -B package -DskipTests --file Opearators_Api/pom.xml
 
       # Step 4: Auto-generate Dockerfile
       - name: Create Dockerfile
         run: |
           echo 'FROM eclipse-temurin:17-jdk' > Dockerfile
           echo 'WORKDIR /app' >> Dockerfile
-          echo 'COPY StudentManagement/target/*.jar app.jar' >> Dockerfile
+          echo 'COPY Opearators_Api/target/*.jar app.jar' >> Dockerfile
           echo 'EXPOSE 8080' >> Dockerfile
           echo 'ENTRYPOINT ["java", "-jar", "app.jar"]' >> Dockerfile
           
